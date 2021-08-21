@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.turong.training.rabbitmq.mapper.PingMapper">
+
+    <insert id="writeBatch"
+            parameterType="java.util.List"
+            useGeneratedKeys="true" keyProperty="pings.id">
+        insert into pings
+        (
+            id,
+            val,
+            pin_id,
+            created_at,
+            modified_at
+        )
+        values
+        <foreach collection="pings" item="item" separator=",">
+            (
+                #{item.id},
+                #{item.val},
+                #{item.pinId},
+                now(),
+                now()
+            )
+        </foreach>
+    </insert>
+
+</mapper>
