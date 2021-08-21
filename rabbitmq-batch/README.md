@@ -1,2 +1,2 @@
-# ALl REST apis examples
-Tips
+# RabbitMQ Batch Consumer
+RabbitMQ Batch Consumer Example
